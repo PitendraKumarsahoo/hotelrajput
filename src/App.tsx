@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import TourVideoModal from './components/TourVideoModal';
+import FloatingContactButtons from './components/FloatingContactButtons';
 
 import HomePage from './pages/HomePage';
 import RoomsPage from './pages/RoomsPage';
@@ -114,6 +115,9 @@ export default function App() {
         isOpen={videoTourOpen}
         onClose={() => setVideoTourOpen(false)}
       />
+
+      {/* Persistent Floating Contact Buttons (Phone Call + WhatsApp) */}
+      <FloatingContactButtons />
     </div>
   );
 }

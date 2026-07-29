@@ -1,8 +1,12 @@
 import React from 'react';
 import AnimatedCounter from './AnimatedCounter';
 import { Star, IndianRupee, MapPin, UtensilsCrossed, Clock, ShieldCheck } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function HighlightsStrip() {
+  const { language } = useLanguage();
+  const isOdia = language === 'or';
+
   return (
     <section id="highlights" className="py-16 bg-[#120D10] border-y border-[#D97706]/20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,13 +14,15 @@ export default function HighlightsStrip() {
         {/* Section Title */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-[#D97706] bg-[#8B2613]/20 px-3 py-1 rounded-full border border-[#D97706]/30">
-            Highway Excellence
+            {isOdia ? 'ହାଇୱେ ବିଶେଷତା' : 'Highway Excellence'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#F3EFEA] mt-3">
-            Why Travelers Choose <span className="gold-gradient-text">Rajput Gateway</span>
+            {isOdia ? 'କାହିଁକି ବାଛନ୍ତି' : 'Why Travelers Choose'} <span className="gold-gradient-text">{isOdia ? 'ରାଜପୁତ ଗେଟୱେ' : 'Rajput Gateway'}</span>
           </h2>
           <p className="text-sm text-[#B8A89A] mt-2">
-            Trusted by over 50,000+ highway commuters, family tourists, and commercial drivers on NH-224 Daspalla.
+            {isOdia
+              ? 'NH-224 ଦଶପଲ୍ଲା ରୋଡରେ ୫୦,୦୦୦+ ରୋଡ୍ ଯାତ୍ରୀ ଏବଂ ପରିବାରଙ୍କ ପ୍ରଥମ ପସନ୍ଦ।'
+              : 'Trusted by over 50,000+ highway commuters, family tourists, and commercial drivers on NH-224 Daspalla.'}
           </p>
         </div>
 
@@ -26,44 +32,44 @@ export default function HighlightsStrip() {
             end={4.8}
             decimals={1}
             suffix=" ★"
-            label="Google Rating"
-            sublabel="500+ Verified Reviews"
+            label={isOdia ? 'ଗୁଗୁଲ୍ ରେଟିଂ' : 'Google Rating'}
+            sublabel={isOdia ? '୫୦୦+ ସନ୍ତୋଷଜନକ ରିଭ୍ୟୁ' : '500+ Verified Reviews'}
             icon={<Star className="w-6 h-6" />}
           />
           <AnimatedCounter
             end={1299}
             prefix="₹"
             suffix="+"
-            label="Starts From"
-            sublabel="AC Comfort Per Night"
+            label={isOdia ? 'ଆରମ୍ଭ ମୂଲ୍ୟ' : 'Starts From'}
+            sublabel={isOdia ? 'ଏସି ରୁମ୍ ପ୍ରତି ରାତି' : 'AC Comfort Per Night'}
             icon={<IndianRupee className="w-6 h-6" />}
           />
           <AnimatedCounter
             end={0}
             suffix=" Km"
-            label="On NH-224"
-            sublabel="Zero Distance Off Highway"
+            label={isOdia ? 'NH-224 ଉପରେ' : 'On NH-224'}
+            sublabel={isOdia ? 'ହାଇୱେ କଡ଼ରେ ଅବସ୍ଥିତ' : 'Zero Distance Off Highway'}
             icon={<MapPin className="w-6 h-6" />}
           />
           <AnimatedCounter
             end={120}
             suffix="+"
-            label="Menu Varieties"
-            sublabel="Odia, Indian & Chinese"
+            label={isOdia ? 'ମେନୁ ଆଇଟମ୍' : 'Menu Varieties'}
+            sublabel={isOdia ? 'ଓଡ଼ିଆ, ଇଣ୍ଡିଆନ୍, ଚାଇନିଜ୍' : 'Odia, Indian & Chinese'}
             icon={<UtensilsCrossed className="w-6 h-6" />}
           />
           <AnimatedCounter
             end={24}
             suffix="/7"
-            label="Open Service"
-            sublabel="Check-in & Dining"
+            label={isOdia ? '୨୪ ଗଣ୍ଟା ସେବା' : 'Open Service'}
+            sublabel={isOdia ? 'ଚେକ୍-ଇନ୍ ଏବଂ ଡାଇନିଂ' : 'Check-in & Dining'}
             icon={<Clock className="w-6 h-6" />}
           />
           <AnimatedCounter
             end={12}
             suffix="+"
-            label="Years Legacy"
-            sublabel="Serving Daspalla Route"
+            label={isOdia ? 'ବର୍ଷର ବିଶ୍ୱାସ' : 'Years Legacy'}
+            sublabel={isOdia ? 'ଦଶପଲ୍ଲା ହାଇୱେ ସେବା' : 'Serving Daspalla Route'}
             icon={<ShieldCheck className="w-6 h-6" />}
           />
         </div>
@@ -72,3 +78,4 @@ export default function HighlightsStrip() {
     </section>
   );
 }
+

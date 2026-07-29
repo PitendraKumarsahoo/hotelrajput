@@ -1,8 +1,9 @@
 import React from 'react';
-import Hero3DScene from './Hero3DScene';
+import HeroPhotoStage from './HeroPhotoStage';
 import TiltCard from './TiltCard';
 import { Calendar, Utensils, Phone, Star, Shield, MapPin, Sparkles, Navigation } from 'lucide-react';
 import { HOTEL_PHONE, MAPS_DIRECTIONS_URL } from '../lib/appsScript';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -10,6 +11,8 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenBooking, onNavigate }: HeroProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-[#0D0B0D]">
       {/* Background Ambient Glows & Grain Mesh */}
@@ -26,17 +29,17 @@ export default function Hero({ onOpenBooking, onNavigate }: HeroProps) {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1417] border border-[#D97706]/30 text-xs font-semibold text-[#F59E0B] mb-6 shadow-lg">
               <span className="flex h-2 w-2 rounded-full bg-[#F59E0B] animate-ping" />
               <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
-              <span>NH-224 Highway, Daspalla • Open 24/7</span>
+              <span>{t.heroTag}</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#F3EFEA] leading-[1.12] tracking-tight mb-6">
-              Experience Premier Luxury at <span className="gold-gradient-text block mt-1">Rajput Highway Gateway</span>
+              {t.heroTitle1} <span className="gold-gradient-text block mt-1">{t.heroTitle2}</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-[#D8C9BC] leading-relaxed max-w-2xl mb-8">
-              A refined sanctuary for road travelers, couples, and families. Featuring air-conditioned suites, authentic Odia & North Indian cuisine, 24/7 room service, and secure parking on NH-224.
+              {t.heroSub}
             </p>
 
             {/* CTA Buttons */}
@@ -46,7 +49,7 @@ export default function Hero({ onOpenBooking, onNavigate }: HeroProps) {
                 className="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-[#D97706] via-[#F59E0B] to-[#D97706] text-[#0D0B0D] font-bold text-sm tracking-wider uppercase hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all flex items-center justify-center gap-2.5 active:scale-95"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Book A Room</span>
+                <span>{t.bookNow}</span>
               </button>
 
               <button
@@ -54,7 +57,7 @@ export default function Hero({ onOpenBooking, onNavigate }: HeroProps) {
                 className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#1C1418] text-[#F3EFEA] border border-[#D97706]/40 hover:border-[#D97706] hover:bg-[#281A22] font-semibold text-sm transition-all flex items-center justify-center gap-2"
               >
                 <Utensils className="w-4 h-4 text-[#F59E0B]" />
-                <span>View Restaurant Menu</span>
+                <span>{t.viewMenu}</span>
               </button>
 
               <a
@@ -97,28 +100,10 @@ export default function Hero({ onOpenBooking, onNavigate }: HeroProps) {
 
           </div>
 
-          {/* Right Hero Visual (3D Gateway Scene + Floating Bento Badge) */}
+          {/* Right Hero Visual (Real Hotel Rajput 4K HD Interactive Photo Showcase) */}
           <div className="lg:col-span-5 relative">
-            <TiltCard maxTilt={8} className="w-full">
-              <div className="relative p-2 rounded-3xl bg-gradient-to-b from-[#2A181E] via-[#161014] to-[#0D0B0D] border border-[#D97706]/30 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-                
-                {/* 3D Scene */}
-                <Hero3DScene />
-
-                {/* Overlay Floating Card */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#140E12]/90 backdrop-blur-xl border border-[#D97706]/30 flex items-center justify-between shadow-2xl">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#D97706]">Featured Room</span>
-                    <h3 className="text-sm font-bold text-[#F3EFEA]">Executive AC Suite</h3>
-                    <p className="text-xs text-[#B8A89A]">King Bed • Highway Panoramas</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs text-[#B8A89A] line-through">₹3,200</span>
-                    <div className="text-lg font-bold text-[#F59E0B]">₹2,499<span className="text-xs text-[#B8A89A] font-normal">/night</span></div>
-                  </div>
-                </div>
-
-              </div>
+            <TiltCard maxTilt={5} className="w-full">
+              <HeroPhotoStage />
             </TiltCard>
           </div>
 
@@ -127,3 +112,4 @@ export default function Hero({ onOpenBooking, onNavigate }: HeroProps) {
     </section>
   );
 }
+

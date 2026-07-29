@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageSquare, Calendar, Menu, X, Sun, Moon, Sparkles } from 'lucide-react';
+import { Phone, MessageSquare, Calendar, Menu, X, Sun, Moon, Languages } from 'lucide-react';
 import { HOTEL_PHONE, getWhatsAppLink } from '../lib/appsScript';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NavbarProps {
   currentPath: string;
@@ -13,6 +14,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +25,13 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/#about' },
-    { name: 'Rooms & Suites', path: '/rooms' },
-    { name: 'Restaurant Menu', path: '/restaurant' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact & Map', path: '/contact' },
-    { name: 'Verify Deploy', path: '/verify' },
+    { name: t.navHome, path: '/' },
+    { name: t.navAbout, path: '/#about' },
+    { name: t.navRooms, path: '/rooms' },
+    { name: t.navMenu, path: '/restaurant' },
+    { name: t.navGallery, path: '/gallery' },
+    { name: t.navContact, path: '/contact' },
+    { name: t.navVerify, path: '/verify' },
   ];
 
   const handleLinkClick = (path: string) => {
@@ -83,7 +85,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
                   key={link.path}
                   onClick={() => handleLinkClick(link.path)}
                   aria-label={`Navigate to ${link.name}`}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 ${
+                  className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 ${
                     isActive
                       ? 'bg-gradient-to-r from-[#8B2613] to-[#D97706] text-white shadow-md'
                       : 'text-[#D8C9BC] hover:text-[#F59E0B] hover:bg-white/5'
@@ -95,8 +97,19 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
             })}
           </nav>
 
-          {/* Quick Action Buttons (Theme Switcher, Call, WhatsApp, Book Now) */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          {/* Quick Action Buttons (Language Switcher, Theme Switcher, Call, WhatsApp, Book Now) */}
+          <div className="hidden sm:flex items-center gap-2">
+            {/* Language Switcher Pill */}
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-2 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center gap-1.5 text-xs font-bold font-mono"
+              aria-label={`Switch language to ${language === 'en' ? 'Odia (ଓଡ଼ିଆ)' : 'English'}`}
+              title={`Active: ${language === 'en' ? 'English' : 'ଓଡ଼ିଆ'} - Click to Switch`}
+            >
+              <Languages className="w-3.5 h-3.5 text-[#F59E0B]" />
+              <span>{language === 'en' ? 'EN' : 'ଓଡ଼ିଆ'}</span>
+            </button>
+
             {/* Theme Switcher Button */}
             <button
               onClick={toggleTheme}
@@ -137,12 +150,20 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
               className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D97706] via-[#F59E0B] to-[#D97706] text-[#0D0B0D] font-bold text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all flex items-center gap-1.5 active:scale-95"
             >
               <Calendar className="w-3.5 h-3.5" />
-              <span>Book Room</span>
+              <span>{t.bookNow}</span>
             </button>
           </div>
 
-          {/* Mobile Menu Toggle Button & Theme Switcher */}
+          {/* Mobile Menu Toggle Button & Switchers */}
           <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="px-2.5 py-2 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 text-xs font-bold font-mono"
+              aria-label="Switch Language"
+            >
+              {language === 'en' ? 'EN' : 'ଓଡ଼ିଆ'}
+            </button>
+
             <button
               onClick={toggleTheme}
               className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30"
@@ -183,6 +204,20 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
 
             <div className="pt-4 border-t border-[#D97706]/20 mt-2 flex flex-col gap-2.5">
               <button
+                onClick={toggleLanguage}
+                className="w-full py-3 px-4 rounded-xl bg-[#1A1216] border border-[#D97706]/30 text-xs font-semibold text-[#F59E0B] flex items-center justify-between"
+                aria-label="Toggle Language"
+              >
+                <span className="flex items-center gap-2">
+                  <Languages className="w-4 h-4" />
+                  Language / ଭାଷା
+                </span>
+                <span className="uppercase text-[10px] font-bold tracking-wider px-2 py-0.5 rounded bg-[#D97706]/20 border border-[#D97706]/30">
+                  {language === 'en' ? 'English (EN)' : 'ଓଡ଼ିଆ (Odia)'}
+                </span>
+              </button>
+
+              <button
                 onClick={toggleTheme}
                 className="w-full py-3 px-4 rounded-xl bg-[#1A1216] border border-[#D97706]/30 text-xs font-semibold text-[#F59E0B] flex items-center justify-between"
                 aria-label="Toggle theme mode"
@@ -204,7 +239,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
                 className="w-full py-3 rounded-xl bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Instant Online Booking</span>
+                <span>{t.bookNow}</span>
               </button>
 
               <div className="grid grid-cols-2 gap-2">
@@ -214,7 +249,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
                   aria-label="Call Hotel Rajput 24/7"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call 24/7</span>
+                  <span>{t.callUs}</span>
                 </a>
                 <a
                   href={getWhatsAppLink("Hello Hotel Rajput, I would like to inquire about booking.")}
@@ -234,4 +269,5 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
     </header>
   );
 }
+
 
