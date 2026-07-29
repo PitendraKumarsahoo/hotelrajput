@@ -1,0 +1,6 @@
+{
+  "name": "Rajput Highway Gateway",
+  "description": "Luxury Highway Hotel & Restaurant in Daspalla on NH-224. 3D interactive room showcase, authentic cuisine menu, instant room booking, and venue reservation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,6 @@
+# Rajput Highway Gateway (Hotel Rajput) - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /verify
+
+Sitemap: https://hotelrajput.in/sitemap.xml

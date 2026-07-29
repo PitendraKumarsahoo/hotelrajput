@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #0d0b0d;
+    color: #f3efea;
+  }
+
+  h1, h2, h3, .font-serif-luxury {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0b0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #332025;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
+
+/* Glassmorphism & Gold Glow utilities */
+.glass-panel {
+  background: rgba(22, 17, 21, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 119, 6, 0.18);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  border-color: rgba(217, 119, 6, 0.45);
+  box-shadow: 0 12px 32px -8px rgba(217, 119, 6, 0.15);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0D4 0%, #F59E0B 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.burgundy-gradient-bg {
+  background: linear-gradient(135deg, #2D0A11 0%, #170910 100%);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(217, 119, 6, 0.25);
+}
+
+/* 3D tilt perspective wrapper */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+@keyframes floatLight {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatLight 6s ease-in-out infinite;
+}
+
+/* WCAG Focus Visible Outline for Keyboard Navigation */
+:focus-visible {
+  outline: 2px solid #F59E0B;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Morning Light High-Contrast Theme Overrides */
+html.light,
+html.light body {
+  background-color: #F8F5F0 !important;
+  color: #1A1215 !important;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #F8F5F0;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #D97706;
+}
+
+html.light .gold-gradient-text {
+  background: linear-gradient(135deg, #8B2613 0%, #B45309 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .bg-\[\#0D0B0D\],
+html.light .bg-\[\#090709\],
+html.light .bg-\[\#120D10\] {
+  background-color: #F8F5F0 !important;
+  color: #1A1215 !important;
+}
+
+html.light .bg-\[\#140F12\],
+html.light .bg-\[\#161115\],
+html.light .bg-\[\#1C1418\],
+html.light .bg-\[\#1D161A\],
+html.light .bg-\[\#181216\],
+html.light .bg-\[\#251A20\],
+html.light .bg-\[\#28181E\],
+html.light .bg-\[\#1A1216\] {
+  background-color: #FFFFFF !important;
+  color: #1A1215 !important;
+}
+
+html.light .text-\[\#F3EFEA\],
+html.light .text-\[\#FFF0D4\] {
+  color: #1A1215 !important;
+}
+
+html.light .text-\[\#B8A89A\],
+html.light .text-\[\#D8C9BC\] {
+  color: #4A3E3B !important;
+}
+
+html.light .border-\[\#D97706\]\/20,
+html.light .border-\[\#D97706\]\/30,
+html.light .border-\[\#D97706\]\/40 {
+  border-color: rgba(180, 83, 9, 0.3) !important;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(180, 83, 9, 0.25) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08) !important;
+}
+
+
