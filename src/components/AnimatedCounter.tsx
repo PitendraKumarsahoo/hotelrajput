@@ -75,12 +75,12 @@ export default function AnimatedCounter({
       tabIndex={0}
       role="region"
       aria-label={`${label}: ${prefix}${formattedValue}${suffix}. ${sublabel || ''}`}
-      className="p-6 rounded-2xl bg-[#161115]/90 border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(217,119,6,0.15)] group flex flex-col items-center text-center relative overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
+      className="p-6 rounded-2xl bg-[#161115]/90 html-light-counter-card border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(217,119,6,0.15)] group flex flex-col items-center text-center relative overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
     >
       <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#D97706]/10 to-transparent rounded-bl-full pointer-events-none" />
 
       {icon && (
-        <div className="w-12 h-12 rounded-xl bg-[#2A181E] border border-[#D97706]/30 text-[#F59E0B] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+        <div className="w-12 h-12 rounded-xl bg-[#2A181E] html-light-icon-bg border border-[#D97706]/30 text-[#F59E0B] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
           {icon}
         </div>
       )}
@@ -91,8 +91,8 @@ export default function AnimatedCounter({
         {suffix}
       </div>
 
-      <div className="text-sm font-semibold text-[#F3EFEA] tracking-wide">{label}</div>
-      {sublabel && <div className="text-xs text-[#B8A89A] mt-0.5">{sublabel}</div>}
+      <div className="text-sm font-semibold text-[#F3EFEA] html-light-text-primary tracking-wide">{label}</div>
+      {sublabel && <div className="text-xs text-[#B8A89A] html-light-text-secondary mt-0.5">{sublabel}</div>}
     </div>
   );
 }

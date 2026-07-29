@@ -1,17 +1,67 @@
 import { Room, MenuItem, GalleryItem, Review } from './types';
+import { HIGH_RES_ASSETS } from './lib/images';
 import rajputHeroDay from './assets/images/rajput_hero_day_1785345798852.jpg';
 import rajputHeroNight from './assets/images/rajput_hero_night_1785345818047.jpg';
 import rajputDhabaThali from './assets/images/rajput_dhaba_thali_1785345838144.jpg';
 import rajputLodgeFacade from './assets/images/rajput_lodge_facade_1785345857070.jpg';
+
+import familySuiteAngle1 from './assets/images/family_suite_angle1_1785346426480.jpg';
+import familySuiteAngle2 from './assets/images/family_suite_angle2_1785346443641.jpg';
+import familySuiteAngle3 from './assets/images/family_suite_angle3_1785346460961.jpg';
+import familySuiteAngle4 from './assets/images/family_suite_angle4_1785346477807.jpg';
+
+import execSuiteAngle1 from './assets/images/exec_suite_angle1_1785346494157.jpg';
+import execSuiteAngle2 from './assets/images/exec_suite_angle2_1785346507253.jpg';
+
+import deluxeDoubleAngle1 from './assets/images/deluxe_double_angle1_1785346526382.jpg';
+import deluxeDoubleAngle2 from './assets/images/deluxe_double_angle2_1785346542078.jpg';
 
 export const HOTEL_PHOTOS = {
   heroDay: rajputHeroDay,
   heroNight: rajputHeroNight,
   dhabaThali: rajputDhabaThali,
   lodgeFacade: rajputLodgeFacade,
+  familySuite1: familySuiteAngle1,
+  familySuite2: familySuiteAngle2,
+  familySuite3: familySuiteAngle3,
+  familySuite4: familySuiteAngle4,
+  execSuite1: execSuiteAngle1,
+  execSuite2: execSuiteAngle2,
+  deluxeDouble1: deluxeDoubleAngle1,
+  deluxeDouble2: deluxeDoubleAngle2,
 };
 
 export const ROOMS: Room[] = [
+  {
+    id: 'premium-family-suite',
+    name: 'Family Suite',
+    tagline: 'Spacious comfort for families & groups',
+    pricePerNight: 1700,
+    originalPrice: 2200,
+    capacity: '2–5 Guests',
+    bedType: 'Double + Extra Bed',
+    sizeSqFt: 280,
+    rating: 4.9,
+    reviewsCount: 186,
+    featured: true,
+    image: HIGH_RES_ASSETS.rooms.familySuiteMain,
+    gallery: [
+      HIGH_RES_ASSETS.rooms.familySuiteMain,
+      HIGH_RES_ASSETS.rooms.familySuiteAngle2,
+      HIGH_RES_ASSETS.rooms.familySuiteAngle3,
+      HIGH_RES_ASSETS.rooms.familySuiteAngle4
+    ],
+    amenities: [
+      'Interconnected Rooms',
+      'Spacious & Comfortable',
+      'Ideal for Families & Groups',
+      'Free WiFi',
+      '24-hour Room Service',
+      'Hot Water Bath',
+      'Daily Housekeeping'
+    ],
+    description: 'Generous suite with interconnected rooms designed for Indian families and touring groups. Features two plush double beds, tea lounge seating, 24/7 hot water, and instant room dining service.'
+  },
   {
     id: 'executive-ac-suite',
     name: 'Executive AC Suite',
@@ -24,11 +74,12 @@ export const ROOMS: Room[] = [
     rating: 4.9,
     reviewsCount: 142,
     featured: true,
-    image: rajputLodgeFacade,
+    image: HIGH_RES_ASSETS.rooms.execSuiteMain,
     gallery: [
-      rajputLodgeFacade,
-      rajputHeroDay,
-      rajputHeroNight
+      HIGH_RES_ASSETS.rooms.execSuiteMain,
+      HIGH_RES_ASSETS.rooms.execSuiteAngle2,
+      HIGH_RES_ASSETS.rooms.execSuiteAngle3,
+      HIGH_RES_ASSETS.rooms.execSuiteAngle4
     ],
     amenities: [
       'Split Climate AC',
@@ -54,10 +105,12 @@ export const ROOMS: Room[] = [
     rating: 4.8,
     reviewsCount: 198,
     featured: true,
-    image: rajputHeroDay,
+    image: HIGH_RES_ASSETS.rooms.deluxeDoubleMain,
     gallery: [
-      rajputHeroDay,
-      rajputLodgeFacade
+      HIGH_RES_ASSETS.rooms.deluxeDoubleMain,
+      HIGH_RES_ASSETS.rooms.deluxeDoubleAngle2,
+      HIGH_RES_ASSETS.rooms.deluxeDoubleAngle3,
+      HIGH_RES_ASSETS.rooms.expressSingleMain
     ],
     amenities: [
       'Quiet Split AC',
@@ -71,35 +124,6 @@ export const ROOMS: Room[] = [
     description: 'The ideal rest stop for couples and business visitors. Clean, crisp linen, acoustic insulation against highway noise, and fast check-in service 24/7.'
   },
   {
-    id: 'premium-family-suite',
-    name: 'Premium Family Suite',
-    tagline: 'Generous Space for Family Road Trips',
-    pricePerNight: 3299,
-    originalPrice: 4000,
-    capacity: '4 Guests',
-    bedType: '2 Double Beds / King + Twin',
-    sizeSqFt: 460,
-    rating: 4.9,
-    reviewsCount: 86,
-    featured: false,
-    image: rajputHeroNight,
-    gallery: [
-      rajputHeroNight,
-      rajputLodgeFacade
-    ],
-    amenities: [
-      'Dual Split AC Units',
-      '55" Smart TV with OTT',
-      'Ultra Fast Wi-Fi',
-      'Separate Seating Area',
-      'Mini Refrigerator',
-      'Luggage Storage Rack',
-      'Complimentary Bottled Water',
-      'Hot Water Bath 24/7'
-    ],
-    description: 'Perfect for families traveling across Odisha highways. Plenty of room for children, multiple bedding options, mini-fridge for snacks, and direct restaurant delivery.'
-  },
-  {
     id: 'express-single-ac',
     name: 'Highway Express Single AC',
     tagline: 'Quick Refresh & Rest for Solo Travelers',
@@ -111,9 +135,11 @@ export const ROOMS: Room[] = [
     rating: 4.7,
     reviewsCount: 112,
     featured: false,
-    image: rajputLodgeFacade,
+    image: HIGH_RES_ASSETS.rooms.expressSingleMain,
     gallery: [
-      rajputLodgeFacade
+      HIGH_RES_ASSETS.rooms.expressSingleMain,
+      HIGH_RES_ASSETS.rooms.expressSingleAngle2,
+      HIGH_RES_ASSETS.rooms.deluxeDoubleAngle2
     ],
     amenities: [
       'Instant Cooling AC',
@@ -147,13 +173,13 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'odia',
     price: 360,
     description: 'Slow-cooked tender highway mutton in rich hand-ground spices, served hot with tandoori chapati rotis on a leaf plate.',
-    image: rajputDhabaThali,
+    image: 'https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&q=80&w=1000',
     tags: ['Bestseller', 'Spicy', 'Highway Famous'],
     isVeg: false,
     isSpicy: true,
     rating: 5.0,
     preparationTime: '20 mins',
-    isSignature: true
+    isSignature: false
   },
   {
     id: 'paneer-butter-masala',
@@ -161,7 +187,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'north-indian',
     price: 240,
     description: 'Fresh cottage cheese cubes simmered in rich cashew tomato gravy with aromatic fenugreek and butter swirl.',
-    image: rajputDhabaThali,
+    image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&q=80&w=1000',
     tags: ['Veg', 'Bestseller', 'Creamy'],
     isVeg: true,
     rating: 4.8,
@@ -173,7 +199,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'tandoori-chinese',
     price: 320,
     description: 'Charcoal roasted half chicken marinated overnight in spiced yogurt, mint chutney, and fresh lemon slices.',
-    image: rajputHeroNight,
+    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=1000',
     tags: ['Non-Veg', 'Tandoori', 'Juicy'],
     isVeg: false,
     isSpicy: true,
@@ -186,7 +212,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'odia',
     price: 180,
     description: 'Cooling fermented curd rice served with Badi Chura, Roasted Potato Fry, Fried Fish/Brinjal, saga bhaja, and raw onion mint salad.',
-    image: rajputDhabaThali,
+    image: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&q=80&w=1000',
     tags: ['Veg/NonVeg', 'Summer Favorite', 'Odia Heritage'],
     isVeg: true,
     rating: 4.9,
@@ -198,7 +224,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'north-indian',
     price: 110,
     description: 'Soft tandoori breads baked in tandoor oven topped with fresh garlic, coriander leaves, and amul butter.',
-    image: rajputDhabaThali,
+    image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&q=80&w=1000',
     tags: ['Veg', 'Hot & Fresh'],
     isVeg: true,
     rating: 4.7,
@@ -210,7 +236,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'tandoori-chinese',
     price: 260,
     description: 'Wok-tossed aromatic rice with tender chicken, crisp spring onions, and spicy schezwan gravy combo.',
-    image: rajputDhabaThali,
+    image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&q=80&w=1000',
     tags: ['Chinese', 'Spicy'],
     isVeg: false,
     isSpicy: true,
@@ -223,7 +249,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'beverages-desserts',
     price: 35,
     description: 'Clay cup tea infused with crushed cardamom, ginger, cloves, and thick cream milk. Essential highway energy booster.',
-    image: rajputHeroDay,
+    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=1000',
     tags: ['Veg', '24/7 Favorite', 'Hot Beverage'],
     isVeg: true,
     rating: 5.0,

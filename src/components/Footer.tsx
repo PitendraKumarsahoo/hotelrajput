@@ -1,5 +1,5 @@
 import React from 'react';
-import { HOTEL_PHONE, HOTEL_EMAIL, HOTEL_ADDRESS, getWhatsAppLink } from '../lib/appsScript';
+import { HOTEL_PHONE, HOTEL_EMAIL, HOTEL_ADDRESS, MAPS_DIRECTIONS_URL, getWhatsAppLink } from '../lib/appsScript';
 import { MapPin, Phone, Mail, MessageSquare, ShieldCheck, ArrowUp } from 'lucide-react';
 
 interface FooterProps {
@@ -99,8 +99,8 @@ export default function Footer({ onNavigate, onOpenBooking }: FooterProps) {
                 </button>
               </li>
               <li>
-                <button onClick={onOpenBooking} aria-label="Open Online Booking Form" className="text-[#F59E0B] font-semibold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
-                  Online Booking
+                <button onClick={onOpenBooking} aria-label="Open Room Inquiry Form" className="text-[#F59E0B] font-semibold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
+                  Room Inquiry & Reservation
                 </button>
               </li>
             </ul>
@@ -145,7 +145,15 @@ export default function Footer({ onNavigate, onOpenBooking }: FooterProps) {
             <ul className="space-y-3 text-xs">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" />
-                <span>{HOTEL_ADDRESS}</span>
+                <a
+                  href={MAPS_DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#F59E0B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded"
+                  title="Open Hotel Rajput in Google Maps"
+                >
+                  {HOTEL_ADDRESS} <span className="text-[#F59E0B] text-[10px] font-bold ml-1">(Open Map ↗)</span>
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#D97706] shrink-0" />

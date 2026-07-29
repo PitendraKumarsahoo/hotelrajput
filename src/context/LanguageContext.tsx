@@ -11,7 +11,6 @@ export interface Translations {
   navGallery: string;
   navReviews: string;
   navContact: string;
-  navVerify: string;
   bookNow: string;
   callUs: string;
 
@@ -62,7 +61,6 @@ const englishTranslations: Translations = {
   navGallery: 'Gallery',
   navReviews: 'Reviews',
   navContact: 'Contact',
-  navVerify: 'System Diagnostics',
   bookNow: 'Book Room',
   callUs: 'Call 24/7',
 
@@ -109,7 +107,6 @@ const odiaTranslations: Translations = {
   navGallery: 'ଫୋଟୋ ଗ୍ୟାଲେରୀ',
   navReviews: 'ମତାମତ',
   navContact: 'ଯୋଗାଯୋଗ',
-  navVerify: 'ସିଷ୍ଟମ୍ ପରୀକ୍ଷା',
   bookNow: 'ବୁକିଂ କରନ୍ତୁ',
   callUs: '୨୪/୭ କଲ୍ କରନ୍ତୁ',
 

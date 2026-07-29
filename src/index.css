@@ -99,50 +99,368 @@ html.light ::-webkit-scrollbar-thumb {
 }
 
 html.light .gold-gradient-text {
-  background: linear-gradient(135deg, #8B2613 0%, #B45309 50%, #D97706 100%);
+  background: linear-gradient(135deg, #7C2D12 0%, #B45309 50%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Base Page & Section Backgrounds in Light Mode */
 html.light .bg-\[\#0D0B0D\],
 html.light .bg-\[\#090709\],
-html.light .bg-\[\#120D10\] {
+html.light .bg-\[\#120D10\],
+html.light .bg-\[\#0F0B0E\],
+html.light .bg-\[\#110C10\],
+html.light .bg-\[\#0A080A\],
+html.light .bg-\[\#080608\],
+html.light [class*="bg-[#0D0B0D]"],
+html.light [class*="bg-[#090709]"],
+html.light [class*="bg-[#120D10]"],
+html.light [class*="bg-[#0F0B0E]"],
+html.light [class*="bg-[#110C10]"],
+html.light [class*="bg-[#0A080A]"],
+html.light [class*="bg-[#080608]"] {
   background-color: #F8F5F0 !important;
   color: #1A1215 !important;
 }
 
+/* Header Specific Light Mode Rules */
+html.light header {
+  background: rgba(248, 245, 240, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light header nav {
+  background-color: #EFE8E1 !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
+}
+
+html.light header nav button:not(.shadow-md) {
+  color: #382B27 !important;
+}
+
+html.light header nav button:not(.shadow-md):hover {
+  color: #D97706 !important;
+  background-color: rgba(217, 119, 6, 0.12) !important;
+}
+
+/* Primary Card & Modal Containers in Light Mode */
+html.light .html-light-card,
+html.light .html-light-counter-card,
 html.light .bg-\[\#140F12\],
+html.light .bg-\[\#140E12\],
 html.light .bg-\[\#161115\],
 html.light .bg-\[\#1C1418\],
 html.light .bg-\[\#1D161A\],
 html.light .bg-\[\#181216\],
 html.light .bg-\[\#251A20\],
 html.light .bg-\[\#28181E\],
-html.light .bg-\[\#1A1216\] {
+html.light .bg-\[\#160F14\],
+html.light .bg-\[\#1E161C\],
+html.light .bg-\[\#22161B\],
+html.light .bg-\[\#24181E\],
+html.light .bg-\[\#1F171D\],
+html.light .bg-\[\#130E12\],
+html.light .bg-\[\#1A1115\],
+html.light .bg-\[\#22171D\],
+html.light .bg-\[\#150F13\],
+html.light [class*="bg-[#140F12]"],
+html.light [class*="bg-[#140E12]"],
+html.light [class*="bg-[#161115]"],
+html.light [class*="bg-[#1C1418]"],
+html.light [class*="bg-[#1D161A]"],
+html.light [class*="bg-[#181216]"],
+html.light [class*="bg-[#251A20]"],
+html.light [class*="bg-[#28181E]"],
+html.light [class*="bg-[#160F14]"],
+html.light [class*="bg-[#1E161C]"],
+html.light [class*="bg-[#22161B]"],
+html.light [class*="bg-[#24181E]"],
+html.light [class*="bg-[#1F171D]"],
+html.light [class*="bg-[#130E12]"],
+html.light [class*="bg-[#1A1115]"],
+html.light [class*="bg-[#22171D]"],
+html.light [class*="bg-[#150F13]"],
+html.light [class*="bg-[#2A181E]"],
+html.light [class*="bg-[#281E24]"] {
+  background-color: #FFFFFF !important;
+  color: #1A1215 !important;
+  border-color: rgba(180, 83, 9, 0.25) !important;
+  box-shadow: 0 8px 26px -6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Room Specs Row (2-5 Guests, Double Bed, Sq.Ft Box) in Light Mode */
+html.light .html-light-spec-pill,
+html.light .bg-\[\#1A1216\],
+html.light [class*="bg-[#1A1216]"],
+html.light .bg-\[\#1C151A\],
+html.light .bg-\[\#181015\],
+html.light .bg-\[\#20151B\],
+html.light .bg-\[\#1B1217\],
+html.light .bg-\[\#1A1116\],
+html.light .bg-\[\#1C1419\],
+html.light [class*="bg-[#1C151A]"],
+html.light [class*="bg-[#181015]"],
+html.light [class*="bg-[#20151B]"],
+html.light [class*="bg-[#1B1217]"],
+html.light [class*="bg-[#1A1116]"],
+html.light [class*="bg-[#1C1419]"] {
+  background-color: #FFFBEB !important; /* High contrast warm cream pill */
+  color: #1A1215 !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+/* Secondary Button Controls (e.g. View Details button) in Light Mode */
+html.light .html-light-btn-sec,
+html.light .bg-\[\#241B20\],
+html.light .bg-\[\#251A20\],
+html.light [class*="bg-[#241B20]"],
+html.light [class*="bg-[#251A20]"] {
+  background-color: #F3ECE7 !important;
+  color: #1A1215 !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+/* Accent Buttons & Pills (e.g. Reserve / Book Button) in Light Mode */
+html.light .html-light-btn-pri,
+html.light .bg-\[\#281B22\],
+html.light .bg-\[\#2A1D23\],
+html.light .bg-\[\#34232C\],
+html.light .bg-\[\#34222B\],
+html.light [class*="bg-[#281B22]"],
+html.light [class*="bg-[#2A1D23]"],
+html.light [class*="bg-[#34232C]"],
+html.light [class*="bg-[#34222B]"] {
+  background-color: #FEF3C7 !important;
+  color: #78350F !important;
+  border-color: rgba(217, 119, 6, 0.45) !important;
+  font-weight: 700 !important;
+}
+
+/* Text Colors in Light Mode */
+html.light .html-light-text-primary,
+html.light .text-\[\#F3EFEA\],
+html.light .text-\[\#FFF0D4\],
+html.light .text-\[\#F5F0EB\],
+html.light .text-\[\#EFE8E1\],
+html.light [class*="text-[#F3EFEA]"],
+html.light [class*="text-[#FFF0D4]"],
+html.light [class*="text-[#F5F0EB]"],
+html.light [class*="text-[#EFE8E1]"] {
+  color: #1A1215 !important;
+}
+
+html.light .html-light-text-secondary,
+html.light .text-\[\#D8C9BC\],
+html.light .text-\[\#B8A89A\],
+html.light .text-\[\#C8B8AB\],
+html.light .text-\[\#A8988A\],
+html.light [class*="text-[#D8C9BC]"],
+html.light [class*="text-[#B8A89A]"],
+html.light [class*="text-[#C8B8AB]"],
+html.light [class*="text-[#A8988A]"] {
+  color: #382B27 !important; /* Deep dark readable charcoal-brown */
+}
+
+html.light .html-light-text-muted {
+  color: #5C4A44 !important;
+}
+
+/* Green Checkmark Contrast in Light Mode */
+html.light .text-\[\#34D399\],
+html.light [class*="text-[#34D399]"] {
+  color: #059669 !important; /* High contrast emerald green */
+}
+
+/* Ensure amber/gold text stays crisp and readable on light background */
+html.light .html-light-text-gold,
+html.light .text-\[\#F59E0B\],
+html.light [class*="text-[#F59E0B]"] {
+  color: #D97706 !important;
+}
+
+/* Badge Pill Overrides for Light Mode */
+html.light [class*="bg-[#8B2613]"] {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+/* Form inputs & selects in Light Mode */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #FFFFFF !important;
+  color: #1A1215 !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+html.light option {
   background-color: #FFFFFF !important;
   color: #1A1215 !important;
 }
 
-html.light .text-\[\#F3EFEA\],
-html.light .text-\[\#FFF0D4\] {
+/* Border Overrides for Light Mode */
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/30 {
+  border-color: rgba(139, 38, 19, 0.18) !important;
+}
+
+html.light .border-\[\#D97706\]\/15,
+html.light .border-\[\#D97706\]\/20,
+html.light .border-\[\#D97706\]\/25,
+html.light .border-\[\#D97706\]\/30,
+html.light .border-\[\#D97706\]\/40,
+html.light .border-\[\#D97706\]\/50 {
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+/* Glass Panels & Modals in Light Mode */
+html.light .glass-panel,
+html.light .html-light-modal,
+html.light [role="dialog"] > div {
+  background: #FFFFFF !important;
+  color: #1A1215 !important;
+  border: 1px solid rgba(180, 83, 9, 0.3) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ensure ALL headings, paragraphs, labels, and text inside Light Mode Modals have high contrast */
+html.light .html-light-modal h1,
+html.light .html-light-modal h2,
+html.light .html-light-modal h3,
+html.light .html-light-modal .text-\[\#F3EFEA\],
+html.light .html-light-modal [class*="text-[#F3EFEA]"],
+html.light [role="dialog"] h2,
+html.light [role="dialog"] h3 {
   color: #1A1215 !important;
 }
 
-html.light .text-\[\#B8A89A\],
-html.light .text-\[\#D8C9BC\] {
-  color: #4A3E3B !important;
+html.light .html-light-modal p,
+html.light .html-light-modal .text-\[\#B8A89A\],
+html.light .html-light-modal [class*="text-[#B8A89A]"],
+html.light .html-light-modal .text-\[\#D8C9BC\],
+html.light .html-light-modal [class*="text-[#D8C9BC]"],
+html.light [role="dialog"] p,
+html.light [role="dialog"] span {
+  color: #382B27 !important;
 }
 
-html.light .border-\[\#D97706\]\/20,
-html.light .border-\[\#D97706\]\/30,
-html.light .border-\[\#D97706\]\/40 {
-  border-color: rgba(180, 83, 9, 0.3) !important;
+html.light .html-light-modal .html-light-text-muted,
+html.light [role="dialog"] .html-light-text-muted {
+  color: #5C4A44 !important;
 }
 
-html.light .glass-panel {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgba(180, 83, 9, 0.25) !important;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08) !important;
+html.light .html-light-modal .text-\[\#F59E0B\],
+html.light .html-light-modal [class*="text-[#F59E0B]"],
+html.light [role="dialog"] .text-\[\#F59E0B\] {
+  color: #D97706 !important;
 }
+
+html.light .html-light-modal .text-\[\#34D399\],
+html.light [role="dialog"] .text-\[\#34D399\] {
+  color: #059669 !important;
+}
+
+/* Modal Specs Pill (Capacity, Bed Type, Room Area box) */
+html.light .html-light-modal .html-light-spec-pill,
+html.light .html-light-modal .bg-\[\#1A1216\],
+html.light [role="dialog"] .bg-\[\#1A1216\] {
+  background-color: #FFFBEB !important;
+  border: 1px solid rgba(217, 119, 6, 0.35) !important;
+}
+
+html.light .html-light-modal .html-light-spec-pill *,
+html.light [role="dialog"] .html-light-spec-pill * {
+  color: #1A1215 !important;
+}
+
+html.light .html-light-modal .html-light-spec-pill svg,
+html.light [role="dialog"] .html-light-spec-pill svg {
+  color: #D97706 !important;
+}
+
+/* Modal Category Pill (e.g. "SPACIOUS COMFORT FOR FAMILIES & GROUPS") */
+html.light .html-light-modal [class*="bg-[#8B2613]"],
+html.light [role="dialog"] [class*="bg-[#8B2613]"] {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+/* Modal Close Button */
+html.light .html-light-modal button[aria-label*="Close"],
+html.light [role="dialog"] button[aria-label*="Close"] {
+  background-color: #F3ECE7 !important;
+  color: #1A1215 !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
+}
+
+html.light .html-light-modal button[aria-label*="Close"]:hover,
+html.light [role="dialog"] button[aria-label*="Close"]:hover {
+  background-color: #FEF3C7 !important;
+  color: #D97706 !important;
+}
+
+/* Gold Gradient Buttons in Light Mode - ensure high contrast dark text on vibrant gold background */
+html.light [class*="from-[#D97706]"],
+html.light [class*="from-[#D97706]"] span,
+html.light [class*="from-[#D97706]"] svg,
+html.light .html-light-modal button[class*="from-[#D97706]"] span {
+  color: #1A1215 !important;
+  font-weight: 700 !important;
+}
+
+/* Photo Overlays (e.g. image angle badges, carousel counters, photo count tags) */
+html.light .html-light-modal div.relative > div[class*="bg-black/"],
+html.light .html-light-modal div.relative > span[class*="bg-black/"],
+html.light .html-light-modal button > span[class*="bg-black/"],
+html.light div.relative > div[class*="bg-black/"]:not([role="dialog"]),
+html.light div.relative > span[class*="bg-black/"]:not([role="dialog"]) {
+  background-color: rgba(20, 15, 18, 0.88) !important;
+  color: #FFFFFF !important;
+}
+
+html.light .html-light-modal div.relative > div[class*="bg-black/"] *,
+html.light .html-light-modal div.relative > span[class*="bg-black/"] *,
+html.light .html-light-modal button > span[class*="bg-black/"] * {
+  color: #FFFFFF !important;
+}
+
+/* Restaurant Section Light Mode Adjustments */
+html.light .html-light-signature-card {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 50%, #FEF3C7 100%) !important;
+  border-color: rgba(217, 119, 6, 0.45) !important;
+  box-shadow: 0 12px 32px -8px rgba(217, 119, 6, 0.15) !important;
+}
+
+html.light .html-light-tag-pill {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+html.light .html-light-veg-pill {
+  background-color: #ECFDF5 !important;
+  color: #059669 !important;
+  border-color: rgba(5, 150, 105, 0.4) !important;
+}
+
+html.light .html-light-nonveg-pill {
+  background-color: #FEF2F2 !important;
+  color: #DC2626 !important;
+  border-color: rgba(220, 38, 38, 0.4) !important;
+}
+
+html.light .html-light-spicy-pill {
+  background-color: #FFF7ED !important;
+  color: #EA580C !important;
+  border-color: rgba(234, 88, 12, 0.4) !important;
+}
+
 
 

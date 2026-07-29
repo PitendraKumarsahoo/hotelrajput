@@ -10,7 +10,6 @@ import RoomsPage from './pages/RoomsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
-import VerifyPage from './pages/VerifyPage';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -96,8 +95,6 @@ export default function App() {
         {currentPath === '/gallery' && <GalleryPage />}
 
         {currentPath === '/contact' && <ContactPage />}
-
-        {currentPath === '/verify' && <VerifyPage />}
       </div>
 
       {/* Footer */}

@@ -114,13 +114,24 @@ export default function LocationContactSection() {
             </div>
 
             {/* Address Pill */}
-            <div className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 flex items-center gap-3">
-              <MapPin className="w-5 h-5 text-[#F59E0B] shrink-0" />
-              <div className="text-xs text-[#D8C9BC]">
-                <strong className="text-[#F3EFEA] font-semibold block">Rajput Highway Gateway</strong>
-                {HOTEL_ADDRESS}
+            <a
+              href={MAPS_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Hotel Rajput address in Google Maps"
+              className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706] transition-all flex items-center justify-between gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
+            >
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-[#F59E0B] shrink-0 group-hover:scale-110 transition-transform" />
+                <div className="text-xs text-[#D8C9BC]">
+                  <strong className="text-[#F3EFEA] font-semibold block group-hover:text-[#F59E0B] transition-colors">Rajput Highway Gateway</strong>
+                  {HOTEL_ADDRESS}
+                </div>
               </div>
-            </div>
+              <span className="px-2.5 py-1 rounded-lg bg-[#281B22] text-[#F59E0B] text-[10px] font-bold shrink-0 border border-[#D97706]/30 group-hover:bg-[#D97706] group-hover:text-[#0D0B0D] transition-colors">
+                Open Map ↗
+              </span>
+            </a>
 
           </div>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GALLERY_ITEMS } from '../data';
 import LightboxModal from './LightboxModal';
 import { Maximize2, Image as ImageIcon } from 'lucide-react';
+import { handleImageError } from '../lib/images';
 
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -88,6 +89,7 @@ export default function GallerySection() {
                 <img
                   src={item.image}
                   alt={item.title}
+                  onError={(e) => handleImageError(e, 'architecture')}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
 

@@ -11,7 +11,7 @@ export const HOTEL_WHATSAPP = "919437123456";
 export const HOTEL_EMAIL = "info@hotelrajput.in";
 export const HOTEL_ADDRESS = "NH-224 Highway, Daspalla, Nayagarh, Odisha 752084";
 export const MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14983.858580224151!2d84.8398!3d20.3298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1936e78888888b%3A0x123456789abcdef!2sHotel%20Rajput%20Daspalla!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
-export const MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/RajputHighwayGatewayDaspalla";
+export const MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/6dQwVwWQXZEepwFx9";
 export const YOUTUBE_VIDEO_ID = "dQw4w9WgXcQ"; // Placeholder or tour video ID
 
 /**

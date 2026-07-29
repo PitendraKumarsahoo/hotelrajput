@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Room } from '../types';
 import { X, CheckCircle2, Users, Bed, Maximize2, Calendar, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { handleImageError } from '../lib/images';
 
 interface RoomDetailModalProps {
   room: Room | null;
@@ -30,7 +31,7 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
       aria-label={`${room.name} details modal`}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
     >
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#140F12] border border-[#D97706]/40 shadow-2xl p-6 sm:p-8">
+      <div className="html-light-modal relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#140F12] border border-[#D97706]/40 shadow-2xl p-6 sm:p-8">
         
         {/* Close Button */}
         <button
@@ -49,6 +50,7 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
               <img
                 src={images[currentImageIndex]}
                 alt={room.name}
+                onError={(e) => handleImageError(e, 'room')}
                 className="w-full h-full object-cover transition-all duration-300"
               />
 
@@ -74,20 +76,27 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
               </div>
             </div>
 
-            {/* Thumbnail Strip */}
+            {/* Thumbnail Strip with Angle labels */}
             {images.length > 1 && (
               <div className="flex items-center gap-2 overflow-x-auto pb-2">
-                {images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
-                    className={`w-16 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
-                      currentImageIndex === idx ? 'border-[#F59E0B] scale-105' : 'border-transparent opacity-60'
-                    }`}
-                  >
-                    <img src={img} alt="thumbnail" className="w-full h-full object-cover" />
-                  </button>
-                ))}
+                {images.map((img, idx) => {
+                  const angleNames = ['Seating & Beds', 'Lounge & TV', 'Luxury Bedding', 'Attached Bathroom'];
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`relative w-20 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
+                        currentImageIndex === idx ? 'border-[#F59E0B] scale-105 shadow-md' : 'border-white/10 opacity-60 hover:opacity-100'
+                      }`}
+                      aria-label={`View ${angleNames[idx % angleNames.length]}`}
+                    >
+                      <img src={img} alt="thumbnail" onError={(e) => handleImageError(e, 'room')} className="w-full h-full object-cover" />
+                      <span className="absolute bottom-0 inset-x-0 bg-black/85 text-[8px] text-white font-bold py-0.5 px-1 truncate text-center pointer-events-none">
+                        {angleNames[idx % angleNames.length]}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -105,27 +114,27 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
                 </div>
               </div>
 
-              <h2 className="text-2xl font-serif font-bold text-[#F3EFEA] mb-2">{room.name}</h2>
-              <p className="text-xs text-[#B8A89A] leading-relaxed mb-6">{room.description}</p>
+              <h2 className="text-2xl font-serif font-bold text-[#F3EFEA] html-light-text-primary mb-2">{room.name}</h2>
+              <p className="text-xs text-[#B8A89A] html-light-text-secondary leading-relaxed mb-6">{room.description}</p>
 
               {/* Key Specs */}
-              <div className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#1A1216] border border-[#D97706]/20 text-center mb-6">
+              <div className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-[#1A1216] html-light-spec-pill border border-[#D97706]/20 text-center mb-6">
                 <div>
                   <Users className="w-4 h-4 text-[#F59E0B] mx-auto mb-1" />
-                  <div className="text-[10px] text-[#B8A89A]">Capacity</div>
-                  <div className="text-xs font-bold text-[#F3EFEA]">{room.capacity}</div>
+                  <div className="text-[10px] text-[#B8A89A] html-light-text-muted font-medium">Capacity</div>
+                  <div className="text-xs font-bold text-[#F3EFEA] html-light-text-primary">{room.capacity}</div>
                 </div>
 
                 <div>
                   <Bed className="w-4 h-4 text-[#F59E0B] mx-auto mb-1" />
-                  <div className="text-[10px] text-[#B8A89A]">Bed Type</div>
-                  <div className="text-xs font-bold text-[#F3EFEA]">{room.bedType}</div>
+                  <div className="text-[10px] text-[#B8A89A] html-light-text-muted font-medium">Bed Type</div>
+                  <div className="text-xs font-bold text-[#F3EFEA] html-light-text-primary">{room.bedType}</div>
                 </div>
 
                 <div>
                   <Maximize2 className="w-4 h-4 text-[#F59E0B] mx-auto mb-1" />
-                  <div className="text-[10px] text-[#B8A89A]">Room Area</div>
-                  <div className="text-xs font-bold text-[#F3EFEA]">{room.sizeSqFt} Sq.Ft</div>
+                  <div className="text-[10px] text-[#B8A89A] html-light-text-muted font-medium">Room Area</div>
+                  <div className="text-xs font-bold text-[#F3EFEA] html-light-text-primary">{room.sizeSqFt} Sq.Ft</div>
                 </div>
               </div>
 
@@ -133,7 +142,7 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
               <h3 className="text-xs font-bold uppercase text-[#D97706] tracking-wider mb-3">Included Amenities</h3>
               <div className="grid grid-cols-2 gap-2 mb-6">
                 {room.amenities.map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-[#D8C9BC]">
+                  <div key={i} className="flex items-center gap-2 text-xs text-[#D8C9BC] html-light-text-secondary font-medium">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399] shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -142,13 +151,13 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
             </div>
 
             {/* Price & Book Action */}
-            <div className="pt-4 border-t border-[#D97706]/30 flex items-center justify-between">
+            <div className="pt-4 border-t border-[#D97706]/30 flex items-center justify-between gap-4">
               <div>
                 {room.originalPrice && (
-                  <span className="text-xs text-[#B8A89A] line-through block">₹{room.originalPrice}</span>
+                  <span className="text-xs text-[#B8A89A] html-light-text-muted line-through block">₹{room.originalPrice}</span>
                 )}
-                <div className="text-2xl font-bold text-[#F59E0B] font-serif">
-                  ₹{room.pricePerNight}<span className="text-xs text-[#B8A89A] font-normal">/night</span>
+                <div className="text-2xl font-bold text-[#F59E0B] html-light-text-gold font-serif">
+                  ₹{room.pricePerNight}<span className="text-xs text-[#B8A89A] html-light-text-muted font-normal">/night</span>
                 </div>
               </div>
 
@@ -157,10 +166,10 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
                   onClose();
                   onSelectForBooking(room.id);
                 }}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all flex items-center justify-center gap-2 whitespace-nowrap shrink-0 active:scale-95"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Book This Suite</span>
+                <span className="whitespace-nowrap font-bold">Book This Suite</span>
               </button>
             </div>
 

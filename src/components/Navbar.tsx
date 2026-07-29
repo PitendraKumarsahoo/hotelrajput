@@ -31,7 +31,6 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
     { name: t.navMenu, path: '/restaurant' },
     { name: t.navGallery, path: '/gallery' },
     { name: t.navContact, path: '/contact' },
-    { name: t.navVerify, path: '/verify' },
   ];
 
   const handleLinkClick = (path: string) => {

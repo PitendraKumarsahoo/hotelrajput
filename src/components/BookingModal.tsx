@@ -70,10 +70,10 @@ export default function BookingModal({ isOpen, selectedRoomId, onClose }: Bookin
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Instant Online Reservation Form"
+      aria-label="Direct Room Inquiry and Reservation Form"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
     >
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#140F12] border border-[#D97706]/40 shadow-2xl p-6 sm:p-8">
+      <div className="html-light-modal relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#140F12] border border-[#D97706]/40 shadow-2xl p-6 sm:p-8">
         
         {/* Close Button */}
         <button
@@ -87,7 +87,7 @@ export default function BookingModal({ isOpen, selectedRoomId, onClose }: Bookin
         {/* Modal Header */}
         <div className="mb-6 border-b border-[#D97706]/20 pb-4">
           <span className="text-xs font-bold uppercase tracking-widest text-[#D97706] bg-[#8B2613]/20 px-3 py-1 rounded-full border border-[#D97706]/30">
-            Instant Online Reservation
+            Direct Room Inquiry & Reservation
           </span>
           <h2 className="text-2xl font-serif font-bold text-[#F3EFEA] mt-2">
             Book Your Stay at <span className="gold-gradient-text">Rajput Gateway</span>

@@ -16,10 +16,10 @@ export default function HighlightsStrip() {
           <span className="text-xs font-bold uppercase tracking-widest text-[#D97706] bg-[#8B2613]/20 px-3 py-1 rounded-full border border-[#D97706]/30">
             {isOdia ? 'ହାଇୱେ ବିଶେଷତା' : 'Highway Excellence'}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#F3EFEA] mt-3">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#F3EFEA] html-light-text-primary mt-3">
             {isOdia ? 'କାହିଁକି ବାଛନ୍ତି' : 'Why Travelers Choose'} <span className="gold-gradient-text">{isOdia ? 'ରାଜପୁତ ଗେଟୱେ' : 'Rajput Gateway'}</span>
           </h2>
-          <p className="text-sm text-[#B8A89A] mt-2">
+          <p className="text-sm text-[#B8A89A] html-light-text-secondary mt-2">
             {isOdia
               ? 'NH-224 ଦଶପଲ୍ଲା ରୋଡରେ ୫୦,୦୦୦+ ରୋଡ୍ ଯାତ୍ରୀ ଏବଂ ପରିବାରଙ୍କ ପ୍ରଥମ ପସନ୍ଦ।'
               : 'Trusted by over 50,000+ highway commuters, family tourists, and commercial drivers on NH-224 Daspalla.'}
