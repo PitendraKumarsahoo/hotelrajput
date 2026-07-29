@@ -174,7 +174,10 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl bg-[#1D161A] text-[#F3EFEA] border border-[#D97706]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
-              aria-label="Toggle Navigation Menu"
+              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-menu"
+              aria-haspopup="true"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-[#F59E0B]" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -184,7 +187,12 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
 
       {/* Mobile Slide-down Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[73px] bg-[#0D0B0D]/95 backdrop-blur-2xl border-b border-[#D97706]/30 p-6 shadow-2xl animate-in slide-in-from-top duration-300">
+        <div
+          id="mobile-navigation-menu"
+          role="navigation"
+          aria-label="Mobile Navigation Menu"
+          className="lg:hidden fixed inset-x-0 top-[73px] bg-[#0D0B0D]/95 backdrop-blur-2xl border-b border-[#D97706]/30 p-6 shadow-2xl animate-in slide-in-from-top duration-300"
+        >
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <button

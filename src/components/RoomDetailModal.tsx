@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Room } from '../types';
 import { X, CheckCircle2, Users, Bed, Maximize2, Calendar, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { handleImageError } from '../lib/images';
+import OptimizedImage from './OptimizedImage';
 
 interface RoomDetailModalProps {
   room: Room | null;
@@ -11,6 +12,17 @@ interface RoomDetailModalProps {
 
 export default function RoomDetailModal({ room, onClose, onSelectForBooking }: RoomDetailModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  React.useEffect(() => {
+    if (!room) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [room, onClose]);
 
   if (!room) return null;
 
@@ -47,11 +59,11 @@ export default function RoomDetailModal({ room, onClose, onSelectForBooking }: R
           {/* Gallery Carousel */}
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="relative h-[280px] sm:h-[360px] rounded-2xl overflow-hidden border border-[#D97706]/30">
-              <img
+              <OptimizedImage
                 src={images[currentImageIndex]}
                 alt={room.name}
-                onError={(e) => handleImageError(e, 'room')}
-                className="w-full h-full object-cover transition-all duration-300"
+                fallbackType="room"
+                className="w-full h-full"
               />
 
               {images.length > 1 && (

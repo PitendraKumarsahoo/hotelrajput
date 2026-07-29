@@ -3,7 +3,7 @@ import { MENU_ITEMS } from '../data';
 import TiltCard from './TiltCard';
 import { UtensilsCrossed, Flame, Clock } from 'lucide-react';
 import { getWhatsAppLink } from '../lib/appsScript';
-import { handleImageError } from '../lib/images';
+import OptimizedImage from './OptimizedImage';
 
 export default function RestaurantSection() {
   return (
@@ -32,17 +32,23 @@ export default function RestaurantSection() {
             <TiltCard key={item.id} maxTilt={10} className="h-full">
               <article
                 tabIndex={0}
-                aria-label={`${item.name}, Price ₹${item.price}, ${item.isVeg ? 'Veg' : 'Non-Veg'}, Preparation time ${item.preparationTime}`}
-                className="h-full rounded-2xl bg-[#161115] html-light-card border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 p-5 flex flex-col justify-between group shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
+                aria-label={`${item.name}, Price ₹${item.price}, ${item.isVeg ? 'Veg' : 'Non-Veg'}, Preparation time ${item.preparationTime}. Press Enter to order on WhatsApp.`}
+                onKeyDown={(e) => {
+                  if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) {
+                    e.preventDefault();
+                    window.open(getWhatsAppLink(`Hello Hotel Rajput, I would like to order ${item.name}`), '_blank');
+                  }
+                }}
+                className="h-full rounded-2xl bg-[#161115] html-light-card border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 p-5 flex flex-col justify-between group shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] cursor-pointer"
               >
                 
                 <div>
                   <div className="relative h-44 rounded-xl overflow-hidden mb-4 border border-[#D97706]/20">
-                    <img
+                    <OptimizedImage
                       src={item.image}
                       alt={item.name}
-                      onError={(e) => handleImageError(e, 'food')}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      fallbackType="food"
+                      className="w-full h-full"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-50 pointer-events-none" />
 

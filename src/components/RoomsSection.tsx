@@ -49,8 +49,14 @@ export default function RoomsSection({ onOpenBookingWithRoom }: RoomsSectionProp
               <TiltCard key={room.id} maxTilt={6} className="h-full">
                 <article
                   tabIndex={0}
-                  aria-label={`${room.name}, ${room.capacity}, ${room.bedType}, ₹${room.pricePerNight} per night`}
-                  className="h-full flex flex-col justify-between rounded-3xl bg-[#161115] html-light-card border border-[#D97706]/25 hover:border-[#D97706]/65 focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B0D] focus:outline-none transition-all duration-300 overflow-hidden group shadow-xl"
+                  aria-label={`${room.name}, ${room.capacity}, ${room.bedType}, ₹${room.pricePerNight} per night. Press Enter to view details.`}
+                  onKeyDown={(e) => {
+                    if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) {
+                      e.preventDefault();
+                      setSelectedRoomModal(room);
+                    }
+                  }}
+                  className="h-full flex flex-col justify-between rounded-3xl bg-[#161115] html-light-card border border-[#D97706]/25 hover:border-[#D97706]/65 focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B0D] focus:outline-none transition-all duration-300 overflow-hidden group shadow-xl cursor-pointer"
                 >
                   
                   <div>

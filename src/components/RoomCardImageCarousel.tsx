@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Maximize2, Sparkles, Camera } from 'lucide-react';
 import { handleImageError } from '../lib/images';
+import OptimizedImage from './OptimizedImage';
 
 interface RoomCardImageCarouselProps {
   images: string[];
@@ -51,11 +52,11 @@ export default function RoomCardImageCarousel({
   return (
     <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-black group/carousel select-none">
       {/* Active Angle Photo */}
-      <img
+      <OptimizedImage
         src={currentImage}
         alt={`${roomName} - View ${currentIndex + 1} of ${totalImages}`}
-        onError={(e) => handleImageError(e, 'room')}
-        className="w-full h-full object-cover transition-all duration-500 ease-out group-hover/carousel:scale-105"
+        fallbackType="room"
+        className="w-full h-full"
       />
 
       {/* Ambient Vignette Overlay */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GALLERY_ITEMS } from '../data';
 import LightboxModal from './LightboxModal';
 import { Maximize2, Image as ImageIcon } from 'lucide-react';
-import { handleImageError } from '../lib/images';
+import OptimizedImage from './OptimizedImage';
 
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -86,11 +86,11 @@ export default function GallerySection() {
                   isWide ? 'sm:col-span-2 lg:col-span-2 h-72 sm:h-80' : 'h-72 sm:h-80'
                 }`}
               >
-                <img
+                <OptimizedImage
                   src={item.image}
                   alt={item.title}
-                  onError={(e) => handleImageError(e, 'architecture')}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fallbackType="architecture"
+                  className="w-full h-full"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D0B0D] via-[#0D0B0D]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />

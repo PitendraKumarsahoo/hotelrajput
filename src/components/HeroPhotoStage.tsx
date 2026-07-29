@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HOTEL_PHOTOS } from '../data';
 import { Sun, Moon, Building2, Utensils, Maximize2, ShieldCheck, Sparkles, ChevronLeft, ChevronRight, Play, Pause, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import OptimizedImage from './OptimizedImage';
 
 interface PhotoSlide {
   id: string;
@@ -144,11 +145,12 @@ export default function HeroPhotoStage() {
 
       {/* Main 4K Photo Frame Stage */}
       <div className="relative h-[340px] sm:h-[400px] md:h-[450px] w-full overflow-hidden bg-black flex items-center justify-center">
-        <img
+        <OptimizedImage
           key={activeSlide.id}
           src={activeSlide.url}
           alt={activeSlide.titleEn}
-          className={`w-full h-full object-cover object-center transition-all duration-700 ease-out ${
+          fallbackType="architecture"
+          className={`w-full h-full ${
             isHdEnhanced ? 'brightness-105 contrast-105 saturate-110 drop-shadow-2xl' : ''
           }`}
         />
