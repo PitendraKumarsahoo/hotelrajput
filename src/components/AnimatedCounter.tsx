@@ -72,7 +72,10 @@ export default function AnimatedCounter({
   return (
     <div
       ref={elementRef}
-      className="p-6 rounded-2xl bg-[#161115]/90 border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(217,119,6,0.15)] group flex flex-col items-center text-center relative overflow-hidden"
+      tabIndex={0}
+      role="region"
+      aria-label={`${label}: ${prefix}${formattedValue}${suffix}. ${sublabel || ''}`}
+      className="p-6 rounded-2xl bg-[#161115]/90 border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(217,119,6,0.15)] group flex flex-col items-center text-center relative overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
     >
       <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#D97706]/10 to-transparent rounded-bl-full pointer-events-none" />
 

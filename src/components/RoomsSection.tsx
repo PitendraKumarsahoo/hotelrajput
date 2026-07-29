@@ -45,7 +45,7 @@ export default function RoomsSection({ onOpenBookingWithRoom }: RoomsSectionProp
               <article
                 tabIndex={0}
                 aria-label={`${room.name}, ${room.capacity}, ${room.bedType}, ₹${room.pricePerNight} per night`}
-                className="h-full flex flex-col justify-between rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706]/60 focus:border-[#F59E0B] focus:outline-none transition-all duration-300 overflow-hidden group shadow-lg"
+                className="h-full flex flex-col justify-between rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706]/60 focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B0D] focus:outline-none transition-all duration-300 overflow-hidden group shadow-lg"
               >
                 
                 <div>

@@ -53,7 +53,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
           {/* Brand Logo & Highway Marker */}
           <button
             onClick={() => handleLinkClick('/')}
-            className="flex items-center gap-3 group text-left focus:outline-none"
+            className="flex items-center gap-3 group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded-xl p-1"
             aria-label="Hotel Rajput Gateway Home"
           >
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#8B2613] via-[#4A0E17] to-[#D97706] p-0.5 shadow-[0_0_15px_rgba(217,119,6,0.3)] transition-transform duration-300 group-hover:scale-105">
@@ -85,7 +85,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
                   key={link.path}
                   onClick={() => handleLinkClick(link.path)}
                   aria-label={`Navigate to ${link.name}`}
-                  className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 ${
+                  className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] ${
                     isActive
                       ? 'bg-gradient-to-r from-[#8B2613] to-[#D97706] text-white shadow-md'
                       : 'text-[#D8C9BC] hover:text-[#F59E0B] hover:bg-white/5'
@@ -102,7 +102,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
             {/* Language Switcher Pill */}
             <button
               onClick={toggleLanguage}
-              className="px-3 py-2 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center gap-1.5 text-xs font-bold font-mono"
+              className="px-3 py-2 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center gap-1.5 text-xs font-bold font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
               aria-label={`Switch language to ${language === 'en' ? 'Odia (ଓଡ଼ିଆ)' : 'English'}`}
               title={`Active: ${language === 'en' ? 'English' : 'ଓଡ଼ିଆ'} - Click to Switch`}
             >
@@ -113,7 +113,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
             {/* Theme Switcher Button */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center justify-center gap-1.5 group"
+              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center justify-center gap-1.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
               aria-label={`Switch theme to ${theme === 'dark' ? 'Morning Light (High-Contrast Light)' : 'Royal Gold (Dark)'}`}
               title={`Active: ${theme === 'dark' ? 'Royal Gold (Dark)' : 'Morning Light (Light)'} - Click to Switch`}
             >
@@ -126,7 +126,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
 
             <a
               href={`tel:${HOTEL_PHONE}`}
-              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] hover:bg-[#281E24] transition-all flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
               title="Call Front Desk 24/7"
               aria-label="Call Front Desk 24/7"
             >
@@ -137,7 +137,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
               href={getWhatsAppLink("Hello Hotel Rajput, I would like to inquire about room booking and menu.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#122A1E] text-[#34D399] border border-[#34D399]/30 hover:border-[#34D399] hover:bg-[#1A3828] transition-all flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-[#122A1E] text-[#34D399] border border-[#34D399]/30 hover:border-[#34D399] hover:bg-[#1A3828] transition-all flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#34D399]"
               title="Chat on WhatsApp"
               aria-label="Chat on WhatsApp"
             >
@@ -147,7 +147,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
             <button
               onClick={onOpenBooking}
               aria-label="Open Room Booking Form"
-              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D97706] via-[#F59E0B] to-[#D97706] text-[#0D0B0D] font-bold text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all flex items-center gap-1.5 active:scale-95"
+              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D97706] via-[#F59E0B] to-[#D97706] text-[#0D0B0D] font-bold text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all flex items-center gap-1.5 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>{t.bookNow}</span>
@@ -158,7 +158,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={toggleLanguage}
-              className="px-2.5 py-2 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 text-xs font-bold font-mono"
+              className="px-2.5 py-2 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 text-xs font-bold font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
               aria-label="Switch Language"
             >
               {language === 'en' ? 'EN' : 'ଓଡ଼ିଆ'}
@@ -166,7 +166,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
 
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30"
+              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
               aria-label={`Switch theme to ${theme === 'dark' ? 'Morning Light Light Theme' : 'Royal Gold Dark Theme'}`}
             >
               {theme === 'dark' ? <Sun className="w-5 h-5 text-[#F59E0B]" /> : <Moon className="w-5 h-5 text-[#8B2613]" />}
@@ -174,7 +174,7 @@ export default function Navbar({ currentPath, onNavigate, onOpenBooking }: Navba
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F3EFEA] border border-[#D97706]/30 focus:outline-none"
+              className="p-2.5 rounded-xl bg-[#1D161A] text-[#F3EFEA] border border-[#D97706]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-[#F59E0B]" /> : <Menu className="w-6 h-6" />}

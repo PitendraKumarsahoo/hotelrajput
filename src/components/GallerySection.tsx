@@ -52,7 +52,7 @@ export default function GallerySection() {
               aria-selected={activeCategory === cat.id}
               aria-label={`Filter gallery by ${cat.label}`}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider whitespace-nowrap transition-all duration-200 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider whitespace-nowrap transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B0D] ${
                 activeCategory === cat.id
                   ? 'bg-gradient-to-r from-[#8B2613] to-[#D97706] text-white shadow-lg scale-105'
                   : 'bg-[#181216] text-[#B8A89A] hover:text-[#F59E0B] hover:bg-[#281B22] border border-[#D97706]/20'
@@ -64,7 +64,7 @@ export default function GallerySection() {
         </div>
 
         {/* Bento Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="region" aria-label="Photo Gallery Bento Grid">
           {filteredItems.map((item, idx) => {
             // Staggered bento sizing for visual rhythm
             const isWide = idx % 5 === 0;
@@ -81,7 +81,7 @@ export default function GallerySection() {
                     openLightbox(idx);
                   }
                 }}
-                className={`group relative rounded-2xl overflow-hidden border border-[#D97706]/20 hover:border-[#D97706]/60 focus:border-[#F59E0B] focus:outline-none transition-all duration-300 cursor-pointer shadow-lg bg-[#161115] ${
+                className={`group relative rounded-2xl overflow-hidden border border-[#D97706]/20 hover:border-[#D97706]/60 focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B0D] focus:outline-none transition-all duration-300 cursor-pointer shadow-lg bg-[#161115] ${
                   isWide ? 'sm:col-span-2 lg:col-span-2 h-72 sm:h-80' : 'h-72 sm:h-80'
                 }`}
               >

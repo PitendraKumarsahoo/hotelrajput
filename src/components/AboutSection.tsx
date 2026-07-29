@@ -46,8 +46,8 @@ export default function AboutSection({ onOpenVideoTour }: AboutSectionProps) {
               {/* Video Tour Play Button Overlay */}
               <button
                 onClick={onOpenVideoTour}
-                className="absolute inset-0 m-auto w-20 h-20 rounded-full bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-110 active:scale-95 transition-all group/btn"
-                aria-label="Play Hotel Tour Video"
+                className="absolute inset-0 m-auto w-20 h-20 rounded-full bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-110 active:scale-95 transition-all group/btn focus:outline-none focus-visible:ring-4 focus-visible:ring-[#F59E0B]"
+                aria-label="Play 360-degree Hotel Rajput Virtual Tour Video"
               >
                 <Play className="w-8 h-8 fill-current translate-x-0.5 group-hover/btn:scale-110 transition-transform" />
               </button>
@@ -86,8 +86,8 @@ export default function AboutSection({ onOpenVideoTour }: AboutSectionProps) {
             </p>
 
             {/* Feature Bento Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 flex items-start gap-3">
+            <div className="grid grid-cols-2 gap-4 mt-8" role="region" aria-label="Hotel Rajput Key Amenities">
+              <div tabIndex={0} aria-label="24/7 Dining: Hot authentic Odia and Indian dishes served anytime" className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] flex items-start gap-3 transition-all hover:border-[#D97706]/50">
                 <div className="p-2.5 rounded-xl bg-[#28181E] text-[#F59E0B] shrink-0">
                   <Coffee className="w-5 h-5" />
                 </div>
@@ -97,7 +97,7 @@ export default function AboutSection({ onOpenVideoTour }: AboutSectionProps) {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 flex items-start gap-3">
+              <div tabIndex={0} aria-label="Secure Parking: Guarded 24/7 yard for cars, buses and SUVs" className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] flex items-start gap-3 transition-all hover:border-[#D97706]/50">
                 <div className="p-2.5 rounded-xl bg-[#28181E] text-[#F59E0B] shrink-0">
                   <Car className="w-5 h-5" />
                 </div>
@@ -107,7 +107,7 @@ export default function AboutSection({ onOpenVideoTour }: AboutSectionProps) {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 flex items-start gap-3">
+              <div tabIndex={0} aria-label="High-Speed Wi-Fi: Seamless internet connectivity across all rooms" className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] flex items-start gap-3 transition-all hover:border-[#D97706]/50">
                 <div className="p-2.5 rounded-xl bg-[#28181E] text-[#F59E0B] shrink-0">
                   <Wifi className="w-5 h-5" />
                 </div>
@@ -117,7 +117,7 @@ export default function AboutSection({ onOpenVideoTour }: AboutSectionProps) {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 flex items-start gap-3">
+              <div tabIndex={0} aria-label="AC Banquet Hall: Capacity for 300+ guests for weddings and events" className="p-4 rounded-2xl bg-[#161115] border border-[#D97706]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] flex items-start gap-3 transition-all hover:border-[#D97706]/50">
                 <div className="p-2.5 rounded-xl bg-[#28181E] text-[#F59E0B] shrink-0">
                   <Sparkles className="w-5 h-5" />
                 </div>

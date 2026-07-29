@@ -22,10 +22,14 @@ export default function ReviewsSection() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="region" aria-label="Guest Reviews List">
           {REVIEWS.map((rev) => (
             <TiltCard key={rev.id} maxTilt={8} className="h-full">
-              <div className="h-full rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706]/50 p-6 flex flex-col justify-between group shadow-lg">
+              <article
+                tabIndex={0}
+                aria-label={`Review by ${rev.author} from ${rev.location}, Rating ${rev.rating} stars: ${rev.comment}`}
+                className="h-full rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706]/50 p-6 flex flex-col justify-between group shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
+              >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-1 text-[#F59E0B]">
@@ -65,7 +69,7 @@ export default function ReviewsSection() {
 
                   <span className="text-[10px] text-[#B8A89A]">{rev.date}</span>
                 </div>
-              </div>
+              </article>
             </TiltCard>
           ))}
         </div>

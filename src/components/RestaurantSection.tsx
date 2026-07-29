@@ -52,7 +52,7 @@ export default function RestaurantSection() {
               aria-selected={activeCategory === cat.id}
               aria-label={`Filter food menu by ${cat.label}`}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider whitespace-nowrap transition-all duration-200 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider whitespace-nowrap transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#120D10] ${
                 activeCategory === cat.id
                   ? 'bg-gradient-to-r from-[#8B2613] to-[#D97706] text-white shadow-lg scale-105'
                   : 'bg-[#1C1418] text-[#B8A89A] hover:text-[#F59E0B] hover:bg-[#281B22] border border-[#D97706]/20'
@@ -64,13 +64,17 @@ export default function RestaurantSection() {
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" role="region" aria-label="Restaurant Food Menu Items">
           
           {/* Signature Dish 2x2 Bento Hero Card */}
           {activeCategory === 'all' && (
             <div className="md:col-span-2 lg:col-span-2">
               <TiltCard maxTilt={6} className="h-full">
-                <div className="h-full rounded-3xl bg-gradient-to-br from-[#28151A] via-[#1A1115] to-[#0D0B0D] border-2 border-[#D97706]/50 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group shadow-2xl">
+                <article
+                  tabIndex={0}
+                  aria-label={`Signature dish: ${signatureDish.name}, Price ₹${signatureDish.price}`}
+                  className="h-full rounded-3xl bg-gradient-to-br from-[#28151A] via-[#1A1115] to-[#0D0B0D] border-2 border-[#D97706]/50 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
+                >
                   
                   <div className="absolute -top-10 -right-10 w-48 h-48 bg-[#D97706]/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -109,7 +113,8 @@ export default function RestaurantSection() {
                           href={getWhatsAppLink(`Hello Hotel Rajput Restaurant, I would like to order ${signatureDish.name}`)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all"
+                          aria-label={`Order ${signatureDish.name} on WhatsApp`}
+                          className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
                         >
                           <MessageSquare className="w-4 h-4" />
                           <span>Order on WhatsApp</span>
@@ -126,7 +131,7 @@ export default function RestaurantSection() {
                     </div>
                   </div>
 
-                </div>
+                </article>
               </TiltCard>
             </div>
           )}
@@ -134,7 +139,11 @@ export default function RestaurantSection() {
           {/* Standard Food Bento Cards */}
           {filteredItems.map((item) => (
             <TiltCard key={item.id} maxTilt={10} className="h-full">
-              <div className="h-full rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 p-5 flex flex-col justify-between group shadow-lg">
+              <article
+                tabIndex={0}
+                aria-label={`${item.name}, Price ₹${item.price}, ${item.isVeg ? 'Veg' : 'Non-Veg'}, Preparation time ${item.preparationTime}`}
+                className="h-full rounded-2xl bg-[#161115] border border-[#D97706]/20 hover:border-[#D97706]/50 transition-all duration-300 p-5 flex flex-col justify-between group shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
+              >
                 
                 <div>
                   <div className="relative h-40 rounded-xl overflow-hidden mb-4 border border-[#D97706]/20">
@@ -183,14 +192,15 @@ export default function RestaurantSection() {
                     href={getWhatsAppLink(`Hello Hotel Rajput, I would like to order/inquire about ${item.name}`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-[#F59E0B] hover:text-[#D97706] flex items-center gap-1 transition-colors"
+                    aria-label={`Order ${item.name} on WhatsApp`}
+                    className="text-xs font-semibold text-[#F59E0B] hover:text-[#D97706] flex items-center gap-1 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
                   >
                     <span>Order Food</span>
                     <UtensilsCrossed className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
-              </div>
+              </article>
             </TiltCard>
           ))}
 

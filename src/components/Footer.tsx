@@ -49,16 +49,18 @@ export default function Footer({ onNavigate, onOpenBooking }: FooterProps) {
                 href={getWhatsAppLink("Hello Hotel Rajput, I want to inquire about room booking.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-[#122A1E] text-[#34D399] border border-[#34D399]/30 hover:border-[#34D399] transition-all"
+                className="p-2.5 rounded-xl bg-[#122A1E] text-[#34D399] border border-[#34D399]/30 hover:border-[#34D399] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#34D399]"
                 title="WhatsApp Chat"
+                aria-label="WhatsApp Chat"
               >
                 <MessageSquare className="w-4 h-4" />
               </a>
 
               <a
                 href={`tel:${HOTEL_PHONE}`}
-                className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] transition-all"
+                className="p-2.5 rounded-xl bg-[#1D161A] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
                 title="Call 24/7"
+                aria-label="Call Hotel Rajput Front Desk 24/7"
               >
                 <Phone className="w-4 h-4" />
               </a>
@@ -72,32 +74,32 @@ export default function Footer({ onNavigate, onOpenBooking }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => onNavigate('/')} className="hover:text-[#F59E0B] transition-colors">
+                <button onClick={() => onNavigate('/')} aria-label="Navigate to Home page" className="hover:text-[#F59E0B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/#about')} className="hover:text-[#F59E0B] transition-colors">
+                <button onClick={() => onNavigate('/#about')} aria-label="Navigate to About Hotel Rajput section" className="hover:text-[#F59E0B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
                   About Hotel Rajput
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/rooms')} className="hover:text-[#F59E0B] transition-colors">
+                <button onClick={() => onNavigate('/rooms')} aria-label="Navigate to Luxury Rooms and Suites page" className="hover:text-[#F59E0B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
                   Luxury Rooms & Suites
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/restaurant')} className="hover:text-[#F59E0B] transition-colors">
+                <button onClick={() => onNavigate('/restaurant')} aria-label="Navigate to Restaurant Menu page" className="hover:text-[#F59E0B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
                   Restaurant Menu
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/gallery')} className="hover:text-[#F59E0B] transition-colors">
+                <button onClick={() => onNavigate('/gallery')} aria-label="Navigate to Photo Gallery page" className="hover:text-[#F59E0B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
                   Photo Gallery
                 </button>
               </li>
               <li>
-                <button onClick={onOpenBooking} className="text-[#F59E0B] font-semibold hover:underline">
+                <button onClick={onOpenBooking} aria-label="Open Online Booking Form" className="text-[#F59E0B] font-semibold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] rounded px-1">
                   Online Booking
                 </button>
               </li>
@@ -168,7 +170,8 @@ export default function Footer({ onNavigate, onOpenBooking }: FooterProps) {
 
           <button
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-[#1A1216] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] transition-all flex items-center gap-1 text-[11px]"
+            aria-label="Scroll back to top of page"
+            className="p-2.5 rounded-xl bg-[#1A1216] text-[#F59E0B] border border-[#D97706]/30 hover:border-[#D97706] transition-all flex items-center gap-1 text-[11px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

@@ -88,18 +88,21 @@ export default function HeroPhotoStage() {
     <div className="relative w-full rounded-3xl overflow-hidden bg-[#140E12] border border-[#D97706]/35 shadow-[0_20px_60px_rgba(0,0,0,0.85)] group">
       
       {/* Top Interactive Tab Bar */}
-      <div className="p-3 bg-[#1C1419]/90 border-b border-[#D97706]/20 backdrop-blur-md flex items-center justify-between gap-2 overflow-x-auto scrollbar-none z-20">
+      <div className="p-3 bg-[#1C1419]/90 border-b border-[#D97706]/20 backdrop-blur-md flex items-center justify-between gap-2 overflow-x-auto scrollbar-none z-20" role="tablist" aria-label="Photo stage categories">
         <div className="flex items-center gap-1.5 shrink-0">
           {slides.map((slide, idx) => {
             const isActive = idx === currentIndex;
             return (
               <button
                 key={slide.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Show ${isOdia ? slide.tagOr : slide.tagEn} photo`}
                 onClick={() => {
                   setCurrentIndex(idx);
                   setIsPlaying(false);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] ${
                   isActive
                     ? 'bg-gradient-to-r from-[#D97706] to-[#F59E0B] text-[#0D0B0D] shadow-[0_0_15px_rgba(245,158,11,0.4)] scale-105'
                     : 'bg-[#281B22] text-[#B8A89A] hover:text-[#F3EFEA] hover:bg-[#34222B]'
@@ -117,7 +120,9 @@ export default function HeroPhotoStage() {
           <button
             onClick={() => setIsHdEnhanced(!isHdEnhanced)}
             title={isHdEnhanced ? "4K Clarity Active" : "Enable 4K Clarity Filter"}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wider flex items-center gap-1 border transition-all ${
+            aria-label={isHdEnhanced ? "Disable 4K Ultra HD Enhancement" : "Enable 4K Ultra HD Enhancement"}
+            aria-pressed={isHdEnhanced}
+            className={`px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wider flex items-center gap-1 border transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B] ${
               isHdEnhanced
                 ? 'bg-[#34D399]/20 text-[#34D399] border-[#34D399]/40 shadow-[0_0_10px_rgba(52,211,153,0.3)]'
                 : 'bg-[#281B22] text-[#B8A89A] border-white/10'
@@ -129,7 +134,7 @@ export default function HeroPhotoStage() {
 
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-1.5 rounded-lg bg-[#281B22] text-[#B8A89A] hover:text-[#F3EFEA] border border-white/10"
+            className="p-1.5 rounded-lg bg-[#281B22] text-[#B8A89A] hover:text-[#F3EFEA] border border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
             aria-label={isPlaying ? "Pause Slideshow" : "Play Slideshow"}
           >
             {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -166,7 +171,7 @@ export default function HeroPhotoStage() {
         {/* Fullscreen Zoom Lightbox Trigger */}
         <button
           onClick={() => setIsFullscreen(true)}
-          className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-[#0D0B0D]/80 backdrop-blur-md border border-white/20 text-[#F3EFEA] hover:bg-[#F59E0B] hover:text-[#0D0B0D] hover:scale-110 transition-all shadow-xl"
+          className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-[#0D0B0D]/80 backdrop-blur-md border border-white/20 text-[#F3EFEA] hover:bg-[#F59E0B] hover:text-[#0D0B0D] hover:scale-110 transition-all shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
           title="Open 4K Fullscreen View"
           aria-label="Open 4K Fullscreen View"
         >
@@ -176,14 +181,14 @@ export default function HeroPhotoStage() {
         {/* Prev & Next Arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-[#0D0B0D]/70 backdrop-blur-md border border-white/15 text-white hover:bg-[#D97706] hover:scale-110 transition-all opacity-0 group-hover:opacity-100"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-[#0D0B0D]/70 backdrop-blur-md border border-white/15 text-white hover:bg-[#D97706] hover:scale-110 transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
           aria-label="Previous Photo"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-[#0D0B0D]/70 backdrop-blur-md border border-white/15 text-white hover:bg-[#D97706] hover:scale-110 transition-all opacity-0 group-hover:opacity-100"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-[#0D0B0D]/70 backdrop-blur-md border border-white/15 text-white hover:bg-[#D97706] hover:scale-110 transition-all opacity-80 sm:opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F59E0B]"
           aria-label="Next Photo"
         >
           <ChevronRight className="w-5 h-5" />
